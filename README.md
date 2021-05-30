@@ -9,3 +9,7 @@ Commands that JARVIS responds to -
 - $new <coin_name> <coin_address> => Insert a new coin-address pair.
 - $delete <coin_name> => Deletes a coin-address pair.
 - $<coin_name> => Returns the address corresponding to that particular coin.
+
+![Alt text](https://replit.com/@yathartharora1/Jarvis#Screenshot 2021-05-30 at 12.28.02 PM.png)
+
+![Alt text](https://replit.com/@yathartharora1/Jarvis#Screenshot 2021-05-30 at 12.28.23 PM.png)
