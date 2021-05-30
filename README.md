@@ -10,6 +10,6 @@ Commands that JARVIS responds to -
 - $delete <coin_name> => Deletes a coin-address pair.
 - $<coin_name> => Returns the address corresponding to that particular coin.
 
-![Alt text](https://replit.com/@yathartharora1/Jarvis#Screenshot 2021-05-30 at 12.28.02 PM.png)
+![Screenshot 2021-05-30 at 12 28 23 PM](https://user-images.githubusercontent.com/43466752/120095395-7253db80-c143-11eb-97e2-fa0fd9559686.png)
 
 ![Alt text](https://replit.com/@yathartharora1/Jarvis#Screenshot 2021-05-30 at 12.28.23 PM.png)
