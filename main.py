@@ -2,14 +2,6 @@ import discord
 import os
 from replit import db
 
-db["btc"] = "39z6rkBEv24TCfaFNou7wFLNdRuvGN8mkg"
-db["eth"] = "0xe188FdAA1a7b08265eD650071F9746975816cdBF"
-db["bat"] = "0x7F9fbCB0F7a492D806755ABccd19BbC1f1f421C0"
-
-btc = db["btc"]
-eth = db["eth"]
-bat = db["bat"]
-icp = db["ICP"]
 
 my_secret = os.environ['TOKEN']
 
@@ -25,19 +17,25 @@ async def on_message(msg):
   print(key)
   if msg.author == client.user:
     return
-  if msg.content.startswith('$new'):
-    extract = msg.content.split("$new",1)[1]
-    key = extract.split()
-    db[key[0]] = key[1]
-    await msg.channel.send('New Coin-Address pair added to the database')
-
-  if msg.content.startswith('$delete'):
-    extract = msg.content.split('$delete ',1)[1]
-    if extract in db.keys():
-      del db[extract]
-      await msg.channel.send("Key deleted!")
+  if msg.content.startswith('$new'): #Only the author is allowed to add new keys
+    if msg.author.id == 733579039637504030:  #Checking if the author is who he is claiming to be
+      extract = msg.content.split("$new",1)[1]
+      key = extract.split()
+      db[key[0]] = key[1]
+      await msg.channel.send('New Coin-Address pair added to the database')
     else:
-      await msg.channel.send("Key does not exist!")
+      await msg.channel.send('Not allowed to add new coins!')
+
+  if msg.content.startswith('$delete'): #Only the author is allowed to delete
+    if msg.author.id == 733579039637504030: #Checking if the author is who he is claiming to be
+      extract = msg.content.split('$delete ',1)[1]
+      if extract in db.keys():
+        del db[extract]
+        await msg.channel.send("Key deleted!")
+      else:
+        await msg.channel.send("Key does not exist!")
+    else:
+      await msg.channel.send("Not allowed to Delete the key!")
   
   if msg.content.startswith('$list'):
     response = str(db.keys())
